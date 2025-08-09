@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday Nandita 🎉</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(to bottom, #ffe6f0, #ffc2d1);
+      text-align: center;
+      overflow-x: hidden;
+    }
+    .profile-pic {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      margin-top: 30px;
+      object-fit: cover;
+      box-shadow: 0 0 15px #ff99c8;
+    }
+    h1 {
+      color: #d63384;
+      font-size: 2.5rem;
+      margin: 20px 10px;
+      animation: bounce 2s infinite;
+    }
+    p {
+      font-size: 1.3rem;
+      color: #333;
+      margin: 10px 20px;
+    }
+    .extra-imgs {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+      padding: 20px;
+    }
+    .extra-imgs img {
+      width: 90%;
+      max-width: 300px;
+      border-radius: 20px;
+      box-shadow: 0 0 10px #ff99c8;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      background-color: #ff5da2;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: #e63e87;
+    }
+    #surprise {
+      display: none;
+      animation: fadeIn 2s ease-in-out;
+    }
+    footer {
+      margin: 30px 10px;
+      font-size: 1rem;
+      color: #999;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Confetti celebration -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    function launchCelebration() {
+      confetti({
+        particleCount: 100,
+        spread: 120,
+        startVelocity: 40,
+        origin: { y: 0.6 }
+      });
+    }
+    setInterval(launchCelebration, 2500);
+  </script>
+
+  <!-- Birthday Music -->
+  <audio id="bdayMusic" autoplay loop>
+    <source src="bday.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const audio = document.getElementById('bdayMusic');
+      const playPromise = audio.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          document.body.addEventListener('click', () => {
+            audio.play();
+          }, { once: true });
+        });
+      }
+    });
+  </script>
+
+  <!-- Profile Picture -->
+  <img src="Screenshot_20250805_110456.jpg" alt="Nandita" class="profile-pic" />
+  <h1>Happy 19th Birthday, Nandita! 🎂🎉</h1>
+  <p>Wishing you all the love, laughter, and magic on your special day. 💖 You are truly one of a kind!</p>
+
+  <!-- Surprise Button -->
+  <button onclick="document.getElementById('surprise').style.display='block'; this.style.display='none';">
+    🎁 Tap to Reveal Your Surprise!
+  </button>
+
+  <!-- Surprise Gift Section -->
+  <div id="surprise">
+    <div class="extra-imgs">
+      <div>
+        <img src="Screenshot_20250805_110756.jpg" alt="Moment 1" />
+        <p>Your cutest smile ever 💫</p>
+      </div>
+      <div>
+        <img src="Screenshot_20250805_110923.jpg" alt="Moment 2" />
+        <p>That sparkle in your eyes ✨</p>
+      </div>
+      <div>
+        <img src="Screenshot_20250805_110909.jpg" alt="Moment 3" />
+        <p>This one is ❤️ forever</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>Made with 💘 by Trishnik — Just for You, Nandita 💝</footer>
+
+</body>
+</html>
